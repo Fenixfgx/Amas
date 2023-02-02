@@ -38431,14 +38431,14 @@ a.u-link.u-text-hover-grey-90:hover {
 /*end-variables sitestylecss*/
  .u-header {
   background-image: none;
-  min-height: 126px;
+  min-height: 94px;
 }
 
 .u-header .u-custom-html-1 {
   width: 25px;
   height: auto;
   min-height: 25px;
-  margin-top: 70px;
+  margin-top: 0;
   margin-bottom: 0;
   margin-left: calc(((100% - 1140px) / 2) + 1036px);
 }
@@ -38494,23 +38494,31 @@ a.u-link.u-text-hover-grey-90:hover {
 }
 
 .u-header .u-image-2 {
-  width: 230px;
-  height: 147px;
-  margin: -82px auto -70px calc(((100% - 1140px) / 2) + 103px);
+  width: 133px;
+  height: 96px;
+  margin: -82px auto 0 calc(((100% - 1140px) / 2) + 43px);
+}
+
+.u-header .u-icon-1 {
+  width: 57px;
+  height: 57px;
+  margin: -67px calc(((100% - 1140px) / 2) + 185px) -61px auto;
+  padding: 0;
 }
 @media (max-width: 1199px) {
    .u-header {
-    min-height: 125px;
+    min-height: 107px;
   }
 
   .u-header .u-custom-html-1 {
-    margin-top: 65px;
-    margin-left: calc(((100% - 940px) / 2) + 844px);
+    margin-top: 80px;
+    margin-left: calc(((100% - 940px) / 2) + 869px);
   }
 
   .u-header .u-menu-1 {
-    margin-top: -58px;
-    margin-right: calc(((100% - 940px) / 2) + 104px);
+    width: auto;
+    margin-top: -63px;
+    margin-right: calc(((100% - 940px) / 2) + 79px);
   }
 
   .u-header .u-file-icon-1 {
@@ -38519,66 +38527,91 @@ a.u-link.u-text-hover-grey-90:hover {
   }
 
   .u-header .u-image-2 {
-    width: 230px;
-    margin-top: -82px;
-    margin-left: calc(((100% - 940px) / 2) + 103px);
+    width: 133px;
+    height: 95px;
+    margin-top: -79px;
+    margin-left: calc(((100% - 940px) / 2) + 43px);
+  }
+
+  .u-header .u-icon-1 {
+    width: 54px;
+    height: 54px;
+    margin-top: -68px;
+    margin-right: calc(((100% - 940px) / 2) + 149px);
+    margin-bottom: 13px;
   }
 }
 @media (max-width: 991px) {
    .u-header {
-    min-height: 129px;
+    min-height: 106px;
   }
 
   .u-header .u-custom-html-1 {
-    margin-top: 76px;
+    margin-top: 2px;
     margin-left: calc(((100% - 720px) / 2) + 683px);
   }
 
   .u-header .u-menu-1 {
-    width: auto;
-    margin-top: -62px;
+    margin-top: -54px;
     margin-right: calc(((100% - 720px) / 2) + 37px);
   }
 
   .u-header .u-image-2 {
-    margin-top: -108px;
-    margin-bottom: 1px;
-    margin-left: calc(((100% - 720px) / 2) + 96px);
+    width: 186px;
+    height: 101px;
+    margin-top: -73px;
+    margin-left: calc(((100% - 720px) / 2) + 24px);
+  }
+
+  .u-header .u-icon-1 {
+    width: 50px;
+    height: 50px;
+    margin-top: -74px;
+    margin-right: calc(((100% - 720px) / 2) + 134px);
+    margin-bottom: -27px;
   }
 }
 @media (max-width: 767px) {
    .u-header {
-    min-height: 128px;
+    min-height: 105px;
   }
 
   .u-header .u-custom-html-1 {
-    margin-left: calc(((100% - 540px) / 2) + 515px);
+    margin-top: 53px;
+    margin-left: calc(((100% - 540px) / 2) + 508px);
   }
 
   .u-header .u-menu-1 {
-    margin-top: -62px;
-    margin-right: calc(((100% - 540px) / 2) + 37px);
+    margin-top: -51px;
+    margin-right: calc(((100% - 540px) / 2) + 32px);
   }
 
   .u-header .u-image-2 {
-    margin-top: -107px;
-    margin-bottom: 0;
+    width: 186px;
+    height: 101px;
+    margin-top: -73px;
     margin-left: calc(((100% - 540px) / 2));
+  }
+
+  .u-header .u-icon-1 {
+    width: 46px;
+    height: 46px;
+    margin-top: -73px;
+    margin-right: calc(((100% - 540px) / 2) + 109px);
   }
 }
 @media (max-width: 575px) {
    .u-header {
-    min-height: 81px;
+    min-height: 85px;
   }
 
   .u-header .u-custom-html-1 {
-    margin-top: 0;
-    margin-left: calc(((100% - 340px) / 2) + 307px);
+    margin-left: calc(((100% - 340px) / 2) + 315px);
   }
 
   .u-header .u-menu-1 {
-    margin-top: -50px;
-    margin-right: calc(((100% - 340px) / 2) + 33px);
+    margin-top: -51px;
+    margin-right: calc(((100% - 340px) / 2) + 25px);
   }
 
   .u-header .u-file-icon-1 {
@@ -38589,9 +38622,15 @@ a.u-link.u-text-hover-grey-90:hover {
   .u-header .u-image-2 {
     width: 137px;
     height: 81px;
-    margin-top: -65px;
-    margin-bottom: -40px;
-    margin-left: calc(((100% - 340px) / 2));
+    margin-left: calc(((100% - 340px) / 2) + -22px);
+  }
+
+  .u-header .u-icon-1 {
+    width: 31px;
+    height: 31px;
+    margin-top: -49px;
+    margin-right: calc(((100% - 340px) / 2) + 71px);
+    margin-bottom: 17px;
   }
 }
  .u-footer {
