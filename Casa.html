@@ -49,6 +49,7 @@ box-shadow: 0px 2px 8px 0px rgba(128,128,128,1) !important
                 <div id="items-list"></div>
                 <p>Total: $ <span id="total">0</span>
                 </p>
+                <button id="buy-button">Comprar</button>
               </div>
               <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Casa.html">Casa</a>
 </li></ul>
@@ -167,7 +168,13 @@ async function createAddItemButtons() {
     addItemButtonsContainer.appendChild(card);
   });
 }
-createAddItemButtons(); </script>
+createAddItemButtons();
+	document.querySelector("#buy-button").addEventListener("click", function() {
+  const itemsList = document.querySelector("#items-list").textContent;
+  const total = document.querySelector("#total").textContent;
+  const link = `https://wa.me/573107956025/?text=${itemsList} Total: ${total}`;
+  window.open(link, "_blank");
+}); </script>
         </div>
       </div>
     </section>
