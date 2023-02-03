@@ -530,8 +530,6 @@ select,
 input,
 textarea {
   outline: none;
-  background-color: black;
-  border-radius: 17px;
 }
 [type="checkbox"],
 [type="radio"] {
@@ -38490,9 +38488,13 @@ a.u-link.u-text-hover-grey-90:hover {
   margin: 36px auto 0;
 }
 
+.u-header .u-btn-1 {
+  margin: 17px auto 0;
+}
+
 .u-header .u-nav-2 {
   font-size: 1.25rem;
-  margin: 68px auto 0;
+  margin: 15px auto 0;
 }
 
 .u-header .u-logo-image-1 {
@@ -38509,7 +38511,7 @@ a.u-link.u-text-hover-grey-90:hover {
 .u-header .u-icon-1 {
   width: 40px;
   height: 40px;
-  margin: -48px calc(((100% - 1140px) / 2) + 146px) 31px auto;
+  margin: -48px calc(((100% - 1140px) / 2) + 146px) 5px auto;
   padding: 0;
 }
 @media (max-width: 1199px) {
@@ -38602,23 +38604,27 @@ a.u-link.u-text-hover-grey-90:hover {
   }
 }
 @media (max-width: 575px) {
+   .u-header {
+    min-height: 115px;
+  }
+
   .u-header .u-image-1 {
     margin-left: calc(((100% - 340px) / 2) + 19px);
   }
 
   .u-header .u-custom-html-1 {
-    margin-left: calc(((100% - 340px) / 2) + 315px);
+    margin-top: -42px;
+    margin-left: calc(((100% - 340px) / 2) + 308px);
   }
 
   .u-header .u-menu-1 {
-    margin-right: calc(((100% - 340px) / 2) + 18px);
+    margin-top: -55px;
+    margin-right: calc(((100% - 340px) / 2) + 30px);
   }
 
   .u-header .u-file-icon-1 {
     font-size: calc(1em + 18px);
-    padding-left: 25px;
-    padding-right: 25px;
-    height: auto;
+    padding: 6px 25px;
   }
 
   .u-header .u-text-2 {
@@ -38627,11 +38633,9 @@ a.u-link.u-text-hover-grey-90:hover {
   }
 
   .u-header .u-icon-1 {
-    width: 35px;
-    height: 35px;
-    margin-top: -39px;
-    margin-right: calc(((100% - 340px) / 2) + 76px);
-    margin-bottom: 34px;
+    margin-top: -42px;
+    margin-right: calc(((100% - 340px) / 2) + 84px);
+    margin-bottom: 37px;
   }
 }
  .u-footer {
@@ -38640,11 +38644,6 @@ a.u-link.u-text-hover-grey-90:hover {
 
 .u-footer .u-sheet-1 {
   min-height: 120px;
-}
-
-.u-footer .u-text-1 {
-  width: 417px;
-  margin: 49px auto;
 }
 @media (max-width: 1199px) {
   .u-footer .u-sheet-1 {
@@ -38663,11 +38662,7 @@ a.u-link.u-text-hover-grey-90:hover {
 }
 @media (max-width: 575px) {
   .u-footer .u-sheet-1 {
-    min-height: 36px;
-  }
-
-  .u-footer .u-text-1 {
-    width: 340px;
+    min-height: 64px;
   }
 }
 
