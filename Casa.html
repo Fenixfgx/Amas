@@ -20,7 +20,7 @@
     <script type="application/ld+json">{
 		"@context": "http://schema.org",
 		"@type": "Organization",
-		"name": "Copia de Back Amas",
+		"name": "Amas",
 		"logo": "images/none.png"
 }</script>
     <meta name="theme-color" content="#478ac9">
@@ -28,9 +28,9 @@
     <meta property="og:description" content="">
     <meta property="og:type" content="website">
   </head>
-  <body class="u-body u-xl-mode" data-lang="es"><header class="u-clearfix u-header u-sticky u-sticky-c47d u-valign-middle-sm u-valign-middle-xs u-white u-header" id="sec-468f"><style class="u-sticky-style" data-style-id="c47d">.u-sticky-fixed.u-sticky-c47d, .u-body.u-sticky-fixed .u-sticky-c47d {
+  <body class="u-body u-xl-mode" data-lang="es"><header class="u-clearfix u-header u-sticky u-sticky-c47d u-valign-bottom-sm u-white u-header" id="sec-468f"><style class="u-sticky-style" data-style-id="c47d">.u-sticky-fixed.u-sticky-c47d, .u-body.u-sticky-fixed .u-sticky-c47d {
 box-shadow: 0px 2px 8px 0px rgba(128,128,128,1) !important
-}</style><img class="u-align-center-sm u-align-center-xs u-align-left-lg u-align-left-md u-align-left-xl u-hidden-sm u-hidden-xs u-image u-image-contain u-image-default u-image-1" src="images/logonati.png" alt="" data-image-width="415" data-image-height="311"><div class="u-clearfix u-custom-html u-enable-responsive u-custom-html-1">
+}</style><h4 class="u-align-center u-custom-font u-hidden-lg u-hidden-sm u-hidden-xl u-hidden-xs u-text u-text-1">Amas by Nati Moños&amp;Lazos</h4><img class="u-align-center-sm u-align-center-xs u-align-left-lg u-align-left-md u-align-left-xl u-hidden-sm u-hidden-xs u-image u-image-contain u-image-default u-image-1" src="images/logonati.png" alt="" data-image-width="415" data-image-height="311"><div class="u-clearfix u-custom-html u-enable-responsive u-custom-html-1">
         <div id="count" style="background-color: red; width: 20px; height: 20px; border-radius: 50%; color: white; text-align: center; display: inline-block; font-size: 13px;">0</div>
       </div><nav class="u-menu u-menu-hamburger u-menu-open-right u-offcanvas u-menu-1" data-responsive-from="XL">
         <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
@@ -43,15 +43,91 @@ box-shadow: 0px 2px 8px 0px rgba(128,128,128,1) !important
 </li></ul>
         </div>
         <div class="u-custom-menu u-nav-container-collapse">
-          <div class="u-container-style u-custom-color-1 u-inner-container-layout u-sidenav u-sidenav-1" data-offcanvas-width="267.5">
+          <div class="u-container-style u-custom-color-1 u-inner-container-layout u-sidenav u-sidenav-1" data-offcanvas-width="314.559">
             <div class="u-inner-container-layout u-sidenav-overflow">
               <div class="u-menu-close u-menu-close-1"></div>
-              <h3 class="u-align-center u-text u-text-body-alt-color u-text-default u-text-1">Carrito de Compras</h3>
-              <div class="u-align-center u-clearfix u-custom-html u-custom-html-2">
+              <h3 class="u-align-center u-text u-text-body-alt-color u-text-2">Carrito de Compras</h3>
+              <div class="black color u-align-center u-clearfix u-custom-html u-custom-html-2">
                 <div id="items-list"></div>
                 <p>Total: $ <span id="total">0</span>
                 </p>
-                <button id="buy-button">Comprar WP</button>
+                <button id="buy-button">Comprar</button>
+                <br>
+                <br>
+                <form action="https://script.google.com/macros/s/AKfycbx3kWaIlizDSYuDKf-i-kj76q16fHZz06lWE4MOCk0-Ie-C49QjQxLP9ytiP8dW0uPjvw/exec" method="post" id="order-form">
+                  <label for="nombre"></label>
+                  <input type="text" id="nombre" name="nombre" placeholder="Nombre" required="">
+                  <label for="apellido"></label>
+                  <input type="text" id="apellido" name="apellido" placeholder="Apellido" required="">
+                  <label for="direccion"></label>
+                  <input type="text" id="direccion" name="direccion" placeholder="Dirección" required="">
+                  <label for="telefono"></label>
+                  <input type="phone" id="telefono" name="telefono" placeholder="Telefono" required="">
+                  <label for="ciudad"></label>
+                  <input type="text" id="ciudad" name="ciudad" placeholder="Ciudad" required="">
+                  <br>
+                  <label style="color:#ffffff">Metodo de Pago:</label>
+                  <select name="mpago">
+                    <option value="Nequi">Nequi</option>
+                    <option value="DaviPlata">DaviPlata</option>
+                    <option value="Contraentrega">Contraentrega</option>
+                  </select>
+                  <br>
+                  <label for="obs"></label>
+                  <input type="textarea" id="obs" name="obs" placeholder="Observaciones" required="">
+                  <label for="articulos"></label>
+                  <input type="text" id="articulos" name="articulos" placeholder="Articulos" readonly="">
+                  <label for="totalf"></label>
+                  <input type="text" id="totalf" name="totalf" placeholder="Total" readonly="">
+                  <br>
+                  <br>
+                  <input type="submit" value="Confirmar Compra">
+                </form>
+                <style> #items-list {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+  }
+
+  #buy-button {
+    background-color: #E6E6E6;
+    color: #7B0099;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    font-family: Arial;
+    cursor: pointer;
+  }
+
+  #order-form {
+    width: 80%;
+    margin: 0 auto;
+    font-family: Arial;
+    color: black;
+  }
+
+  #order-form input[type="text"],
+  #order-form input[type="textarea"],
+  #order-form input[type="phone"],
+  #order-form select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid lightblue;
+    margin-bottom: 3px;
+  }
+
+  #order-form input[type="submit"] {
+    background-color: #FF69B4;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  } </style>
+                <script> document.getElementById("order-form").style.display = "none";
+
+document.getElementById("buy-button").addEventListener("click", function() {
+  document.getElementById("order-form").style.display = "block";
+}); </script>
               </div>
               <ul class="u-align-center u-nav u-popupmenu-items u-text-active-custom-color-1 u-text-custom-color-1 u-text-hover-custom-color-1 u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Casa.html">Casa</a>
 </li></ul>
@@ -62,7 +138,7 @@ box-shadow: 0px 2px 8px 0px rgba(128,128,128,1) !important
           </div>
           <div class="u-custom-color-1 u-menu-overlay u-opacity u-opacity-45"></div>
         </div>
-      </nav><span class="u-enable-responsive u-file-icon u-icon u-icon-1" data-href="https://wa.me/573107956025"><img src="images/4423697.png" alt=""></span><h4 class="u-align-center u-custom-font u-hidden-md u-hidden-sm u-hidden-xs u-text u-text-2">Amas by Nati Moños&amp;Lazos </h4><h4 class="u-align-center u-custom-font u-hidden-lg u-hidden-sm u-hidden-xl u-hidden-xs u-text u-text-3">Amas by Nati Moños&amp;Lazos</h4></header>
+      </nav><span class="u-enable-responsive u-file-icon u-icon u-icon-1" data-href="https://wa.me/573107956025"><img src="images/4423697.png" alt=""></span><h4 class="u-align-center u-custom-font u-hidden-md u-hidden-sm u-hidden-xs u-text u-text-3">Amas by Nati Moños&amp;Lazos </h4></header>
     <section class="u-clearfix u-hidden-xs u-section-1" id="sec-36ff">
       <div class="u-clearfix u-sheet u-sheet-1"></div>
     </section>
@@ -74,31 +150,37 @@ box-shadow: 0px 2px 8px 0px rgba(128,128,128,1) !important
       </div>
     </section>
     <section class="u-clearfix u-section-3" id="sec-82de">
-      <div class="u-clearfix u-sheet u-sheet-1">
+      <div class="u-clearfix u-sheet u-valign-middle-xs u-sheet-1">
         <div class="u-clearfix u-custom-html u-expanded-width u-custom-html-1">
           <div class="card shopping-cart">
             <div id="add-item-buttons"></div>
             <div id="items-list"></div>
             <p>By <span id="total">Nati</span>
             </p>
+            <br>
+            <br>
           </div>
           <style> #add-item-buttons {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
  
 .add-item-card {
-  flex-basis: calc(206px);
-  margin: auto;
+  flex-basis: calc(155px);
+  /* margin: auto; */
   margin-bottom: 20px;
+  margin-right: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-bottom-right-radius: 17px;
+  border-bottom-left-radius: 17px;
 }
  
 .col-sm-4 {
   padding: 10px;
 }
 .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
     margin: 10px;
     text-align: center;
     font-family: Arial;
@@ -109,11 +191,13 @@ box-shadow: 0px 2px 8px 0px rgba(128,128,128,1) !important
   font-size: 22px;
 }
 .card button {
+  border-bottom-right-radius: 17px;
+  border-bottom-left-radius: 17px;
   border: none;
   outline: 0;
-  padding: 12px;
+  padding: 4px;
   color: white;
-  background-color: #000;
+  background-color: #783cad;
   text-align: center;
   cursor: pointer;
   width: 100%;
@@ -121,7 +205,7 @@ box-shadow: 0px 2px 8px 0px rgba(128,128,128,1) !important
 }
 .card img {
   width: 100%;
-  height: 200px;
+  height: 140px;
   object-fit: cover;
 }
 .add-button {
@@ -179,26 +263,17 @@ async function createAddItemButtons() {
   });
 }
 createAddItemButtons();
-	document.querySelector("#buy-button").addEventListener("click", function() {
-  const itemsList = document.querySelector("#items-list").textContent;
-  const total = document.querySelector("#total").textContent;
-  const link = `https://wa.me/573107956025/?text=${itemsList} Total: ${total}`;
-  window.open(link, "_blank");
+const buyButton = document.querySelector("#buy-button");
+const totalField = document.querySelector("#totalf");
+const articulosField = document.querySelector("#articulos");  
+buyButton.addEventListener("click", function() {
+  totalField.value = totalSpan.textContent;
+  articulosField.value = itemsList.textContent;
 }); </script>
         </div>
       </div>
     </section>
-    <section class="u-clearfix u-section-4" id="sec-5f33">
-      <div class="u-clearfix u-sheet u-sheet-1">
-        <div class="u-clearfix u-custom-html u-custom-html-1">
-          <p>Total: $ <span id="total">0</span>
-          </p>
-        </div>
-        <div class="u-clearfix u-custom-html u-enable-responsive u-custom-html-2">
-          <div id="count" style="background-color: red; width: 20px; height: 20px; border-radius: 50%; color: white; text-align: center; display: inline-block; font-size: 13px;">0</div>
-        </div>
-      </div>
-    </section>
+    
     
     
     
