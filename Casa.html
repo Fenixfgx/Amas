@@ -54,7 +54,7 @@ box-shadow: 0px 2px 8px 0px rgba(128,128,128,1) !important
                 <button id="buy-button">Comprar</button>
                 <br>
                 <br>
-                <form action="https://script.google.com/macros/s/AKfycbx3kWaIlizDSYuDKf-i-kj76q16fHZz06lWE4MOCk0-Ie-C49QjQxLP9ytiP8dW0uPjvw/exec" method="post" id="order-form">
+                <form id="order-form">
                   <label for="nombre"></label>
                   <input type="text" id="nombre" name="nombre" placeholder="Nombre" required="">
                   <label for="apellido"></label>
@@ -65,6 +65,8 @@ box-shadow: 0px 2px 8px 0px rgba(128,128,128,1) !important
                   <input type="phone" id="telefono" name="telefono" placeholder="Telefono" required="">
                   <label for="ciudad"></label>
                   <input type="text" id="ciudad" name="ciudad" placeholder="Ciudad" required="">
+                  <label for="bcat"></label>
+                  <input type="text" id="bcat" name="bcat" placeholder="Barrio/Casa/Apto/Torre" required="">
                   <br>
                   <label style="color:#ffffff">Metodo de Pago:</label>
                   <select name="mpago">
@@ -83,6 +85,20 @@ box-shadow: 0px 2px 8px 0px rgba(128,128,128,1) !important
                   <br>
                   <input type="submit" value="Confirmar Compra">
                 </form>
+                <script> let form = document.querySelector("form");
+	form.addEventListener("submit",(e)=>{
+		e.preventDefault();
+		document.querySelector("#sub").value="Submiting..";
+		let data = new FormData(form);
+		fetch("https://script.google.com/macros/s/AKfycbx3kWaIlizDSYuDKf-i-kj76q16fHZz06lWE4MOCk0-Ie-C49QjQxLP9ytiP8dW0uPjvw/exec"{
+			 method: "post"
+			  body:data
+			  })
+		.then(res => res.text())
+		.then(data =>{
+	document.querySelector("#sub").value="Send";
+	});
+	}) </script>
                 <style> #items-list {
     background-color: rgba(255, 255, 255, 0.2);
     padding: 10px;
