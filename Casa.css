@@ -95,14 +95,14 @@
 
 .u-section-3 .u-custom-html-1 {
   height: auto;
-  min-height: 65px;
-  margin: 15px 0 60px;
+  min-height: 115px;
+  margin: 16px 2px 60px -2px;
 }
 
 @media (max-width: 1199px) {
   .u-section-3 .u-custom-html-1 {
-    margin-right: initial;
-    margin-left: initial;
+    margin-right: 0;
+    margin-left: 0;
   }
 }
 
@@ -113,7 +113,5 @@
 
   .u-section-3 .u-custom-html-1 {
     margin-bottom: 15px;
-    margin-right: initial;
-    margin-left: initial;
   }
 }

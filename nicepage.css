@@ -16577,7 +16577,7 @@ h4,
 h5,
 h6 {
   margin-top: 0;
-  margin-bottom: 0rem;
+  margin-bottom: 0.5rem;
   line-height: 1.2;
   font-weight: 500;
   color: inherit;
@@ -38191,10 +38191,10 @@ a.u-link.u-text-hover-grey-90:hover {
         h3
         {
         font-weight: 400;
-        font-size: 1.4rem;
+        font-size: 1.875rem;
         line-height: 1.2;
-        /* margin-top: 20px; */
-        /* margin-bottom: 20px; */
+        margin-top: 20px;
+        margin-bottom: 20px;
         }
         h4
         {
@@ -38234,8 +38234,8 @@ a.u-link.u-text-hover-grey-90:hover {
         }
         p:not(.u-text-variant)
         {
-        /* margin-top: -14px; */
-        /* margin-bottom: 20px; */
+        margin-top: 20px;
+        margin-bottom: 20px;
         }
         .u-btn
         {
@@ -38492,7 +38492,7 @@ a.u-link.u-text-hover-grey-90:hover {
 .u-header .u-custom-html-2 {
   height: auto;
   min-height: 555px;
-  margin: auto;
+  margin: 12px 81px 0 66px;
 }
 
 .u-header .u-nav-2 {
@@ -38551,7 +38551,9 @@ a.u-link.u-text-hover-grey-90:hover {
   }
 
   .u-header .u-custom-html-2 {
-    margin: auto;
+    width: 176px;
+    margin-left: 66px;
+    margin-right: 81px;
   }
 
   .u-header .u-icon-1 {
