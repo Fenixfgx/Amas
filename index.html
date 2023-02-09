@@ -54,7 +54,7 @@ box-shadow: 0px 2px 8px 0px rgba(128,128,128,1) !important
                 <button id="buy-button">Comprar</button>
                 <br>
                 <br>
-                <form action="https://script.google.com/macros/s/AKfycbx3kWaIlizDSYuDKf-i-kj76q16fHZz06lWE4MOCk0-Ie-C49QjQxLP9ytiP8dW0uPjvw/exec" method="post" id="order-form">
+                <form action="https://script.google.com/macros/s/AKfycbwY6hqExuyC03Zm7xUFotDRQGaJr4StlSfTztW1g4GudQpMqK_FPD8GiU2lX-qVotKIlQ/exec" method="post" id="order-form">
                   <label for="nombre"></label>
                   <input type="text" id="nombre" name="nombre" placeholder="Nombre" required="">
                   <label for="apellido"></label>
@@ -83,11 +83,8 @@ box-shadow: 0px 2px 8px 0px rgba(128,128,128,1) !important
                   <input type="text" id="totalf" name="totalf" placeholder="Total" readonly="">
                   <br>
                   <br>
-                  <input type="submit" value="Confirmar Compra" id="confirm-btn">
+                  <input type="submit" value="Confirmar Compra">
                 </form>
-                <script> document.getElementById("confirm-btn").addEventListener("click", function() {
-    alert("Compra Confirmada");
-  }); </script>
                 <style> #items-list {
     background-color: rgba(255, 255, 255, 0.2);
     padding: 10px;
