@@ -39,7 +39,7 @@ box-shadow: 0px 2px 8px 0px rgba(128,128,128,1) !important
           </a>
         </div>
         <div class="u-custom-menu u-nav-container">
-          <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Casa.html" style="padding: 1622px 48px 1622px 92px;">Casa</a>
+          <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#" style="padding: 1622px 48px 1622px 92px;">Casa</a>
 </li></ul>
         </div>
         <div class="u-custom-menu u-nav-container-collapse">
@@ -48,6 +48,7 @@ box-shadow: 0px 2px 8px 0px rgba(128,128,128,1) !important
               <div class="u-menu-close u-menu-close-1"></div>
               <h3 class="u-align-center u-text u-text-body-alt-color u-text-2">Carrito de Compras</h3>
               <div class="black color u-align-center u-clearfix u-custom-html u-custom-html-2">
+                <div id="url-list" hidden=""></div>
                 <div id="items-list"></div>
                 <p>Total: $ <span id="total">0</span>
                 </p>
@@ -78,11 +79,12 @@ box-shadow: 0px 2px 8px 0px rgba(128,128,128,1) !important
                   <label for="obs"></label>
                   <input type="textarea" id="obs" name="obs" placeholder="Observaciones">
                   <label for="marca-temporal"></label>
-                  <input type="text" id="marca-temporal" name="marca-temporal" placeholder="Marca Temporal" readonly="">
+                  <input type="text" id="marca-temporal" name="marca-temporal" placeholder="Marca Temporal" hidden="">
+                  <input type="text" id="image-urls" name="image-urls" value="" placeholder="image-urls" hidden="">
                   <label for="articulos"></label>
-                  <input type="text" id="articulos" name="articulos" placeholder="Articulos" readonly="">
+                  <input type="text" id="articulos" name="articulos" placeholder="Articulos" hidden="">
                   <label for="totalf"></label>
-                  <input type="text" id="totalf" name="totalf" placeholder="Total" readonly="">
+                  <input type="text" id="totalf" name="totalf" placeholder="Total" hidden="">
                   <br>
                   <br>
                   <input type="submit" value="Confirmar Compra">
@@ -110,8 +112,15 @@ box-shadow: 0px 2px 8px 0px rgba(128,128,128,1) !important
     color: black;
   }
 
+	#order-form input[type="textarea"] {
+	padding: 1px;
+    border-radius: 5px;
+    border: 1px solid lightblue;
+    margin-bottom: 3px;
+	height: 3em;
+	}
+	
   #order-form input[type="text"],
-  #order-form input[type="textarea"],
   #order-form input[type="number"],
   #order-form select {
     padding: 5px;
@@ -142,7 +151,7 @@ box-shadow: 0px 2px 8px 0px rgba(128,128,128,1) !important
     document.getElementById("marca-temporal").value = time + " " + date;
   }); </script>
               </div>
-              <ul class="u-align-center u-nav u-popupmenu-items u-text-active-custom-color-1 u-text-custom-color-1 u-text-hover-custom-color-1 u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Casa.html">Casa</a>
+              <ul class="u-align-center u-nav u-popupmenu-items u-text-active-custom-color-1 u-text-custom-color-1 u-text-hover-custom-color-1 u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="#">Casa</a>
 </li></ul>
             </div>
             <a href="https://nicepage.com" class="u-image u-logo" data-image-width="67" data-image-height="67">
@@ -163,10 +172,11 @@ box-shadow: 0px 2px 8px 0px rgba(128,128,128,1) !important
       </div>
     </section>
     <section class="u-clearfix u-section-3" id="sec-82de">
-      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-        <div class="u-clearfix u-custom-html u-custom-html-1">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-clearfix u-custom-html u-expanded-width u-custom-html-1">
           <div class="card shopping-cart">
             <div id="add-item-buttons"></div>
+            <div id="url-list" hidden=""></div>
             <div id="items-list"></div>
             <p>By <span id="total">Nati</span>
             </p>
@@ -225,6 +235,7 @@ box-shadow: 0px 2px 8px 0px rgba(128,128,128,1) !important
   margin-top: 10px;
 } </style>
           <script> const itemsList = document.querySelector("#items-list");
+const urlList = document.querySelector("#url-list");
 const addItemButtonsContainer = document.querySelector("#add-item-buttons");
 const totalSpan = document.querySelector("#total");
 const count = document.querySelector("#count");
@@ -275,6 +286,11 @@ async function createAddItemButtons() {
       itemElement.textContent = `${itemName}: ${itemValue} 
       `;
       itemsList.appendChild(itemElement);
+		
+	  const itemImagen = document.createElement("div");
+      itemImagen.textContent = `${itemImage};  `;
+      urlList.appendChild(itemImagen);   
+		
     });
     card.appendChild(addButton);
     addItemButtonsContainer.appendChild(card);
@@ -284,10 +300,12 @@ async function createAddItemButtons() {
 createAddItemButtons();
 const buyButton = document.querySelector("#buy-button");
 const totalField = document.querySelector("#totalf");
+const urlField = document.querySelector("#image-urls");  
 const articulosField = document.querySelector("#articulos");  
 buyButton.addEventListener("click", function() {
   totalField.value = totalSpan.textContent;
   articulosField.value = itemsList.textContent;
+  urlField.value = urlList.textContent;
 }); </script>
         </div>
       </div>
