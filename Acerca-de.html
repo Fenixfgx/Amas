@@ -52,7 +52,7 @@ box-shadow: 0px 2px 8px 0px rgba(128,128,128,1) !important
                 <button id="buy-button">Comprar</button>
                 <br>
                 <br>
-                <form action="https://script.google.com/macros/s/AKfycbwY6hqExuyC03Zm7xUFotDRQGaJr4StlSfTztW1g4GudQpMqK_FPD8GiU2lX-qVotKIlQ/exec" method="post" id="order-form">
+                <form action="https://script.google.com/macros/s/AKfycbxZmLxRHKOL9iw60Bh3qddaxCO09Baxpc4sLe_xAQYTv_UTPoHQXcZ4Wu1I47GCvLkfbw/exec" method="post" id="order-form">
                   <label for="nombre"></label>
                   <input type="text" id="nombre" name="nombre" placeholder="Nombre" required="">
                   <label for="apellido"></label>
@@ -60,7 +60,7 @@ box-shadow: 0px 2px 8px 0px rgba(128,128,128,1) !important
                   <label for="direccion"></label>
                   <input type="text" id="direccion" name="direccion" placeholder="Dirección" required="">
                   <label for="telefono"></label>
-                  <input type="phone" id="telefono" name="telefono" placeholder="Telefono" required="">
+                  <input type="number" id="telefono" name="telefono" placeholder="Telefono" required="">
                   <label for="ciudad"></label>
                   <input type="text" id="ciudad" name="ciudad" placeholder="Ciudad" required="">
                   <label for="bcat"></label>
@@ -74,7 +74,9 @@ box-shadow: 0px 2px 8px 0px rgba(128,128,128,1) !important
                   </select>
                   <br>
                   <label for="obs"></label>
-                  <input type="textarea" id="obs" name="obs" placeholder="Observaciones" required="">
+                  <input type="textarea" id="obs" name="obs" placeholder="Observaciones">
+                  <label for="marca-temporal"></label>
+                  <input type="text" id="marca-temporal" name="marca-temporal" placeholder="Marca Temporal" readonly="">
                   <label for="articulos"></label>
                   <input type="text" id="articulos" name="articulos" placeholder="Articulos" readonly="">
                   <label for="totalf"></label>
@@ -108,7 +110,7 @@ box-shadow: 0px 2px 8px 0px rgba(128,128,128,1) !important
 
   #order-form input[type="text"],
   #order-form input[type="textarea"],
-  #order-form input[type="phone"],
+  #order-form input[type="number"],
   #order-form select {
     padding: 5px;
     border-radius: 5px;
@@ -126,9 +128,17 @@ box-shadow: 0px 2px 8px 0px rgba(128,128,128,1) !important
   } </style>
                 <script> document.getElementById("order-form").style.display = "none";
 
-document.getElementById("buy-button").addEventListener("click", function() {
-  document.getElementById("order-form").style.display = "block";
-}); </script>
+  document.getElementById("buy-button").addEventListener("click", function() {
+    document.getElementById("order-form").style.display = "block";
+
+    // Obtener la fecha y hora actual
+    var now = new Date();
+    var time = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+    var date = now.getDate() + "/" + (now.getMonth() + 1) + "/" + now.getFullYear();
+
+    // Establecer el valor de un elemento de formulario con la fecha y hora
+    document.getElementById("marca-temporal").value = time + " " + date;
+  }); </script>
               </div>
               <ul class="u-align-center u-nav u-popupmenu-items u-text-active-custom-color-1 u-text-custom-color-1 u-text-hover-custom-color-1 u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Casa.html">Casa</a>
 </li></ul>
