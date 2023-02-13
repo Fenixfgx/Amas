@@ -1,0 +1,396 @@
+﻿<html>
+  <head>
+    <title>Factura</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    
+    
+<style>
+/* Estilos para la galer�a */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.gallery-item {
+  width: 300px;
+  margin: 10px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 767px) {
+  .gallery-item {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 370px) {
+  .gallery-item {
+    width: 100%;
+  }
+}
+
+.gallery-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  background-image: url(https://nacionanime.com/wp-content/uploads/2022/01/11-gifs-perfectos-de-Violet-Evergarden.gif);
+}
+
+  .imagen {
+  width: 50px;
+    height: 50px;
+    display: inline-block;
+    border-radius: 12px;
+  }
+  
+.gallery-details {
+  padding: 10px;
+}
+
+.gallery-title {
+  font-size: 1em;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  text-align: left;
+  font-family: Arial;
+}
+ 
+.gallery-description {
+  font-size: 1em;
+  color: #777;
+ display: inline-block;
+  font-family: Arial;
+  margin-left: 10px;
+  margin-right: 30%;
+}
+
+.gallery-price {
+  font-size: 1.5em;
+  color: #f00;
+  text-align: center;
+  font-family: Arial;
+}
+
+.call-button {
+  border: none;
+  color: white;
+  padding: -3px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-family: arial;
+  margin: 0px 22%;
+  cursor: pointer;
+}
+
+.whatsapp-button {
+  border: none;
+  color: white;
+  padding: -3px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-family: arial;
+  margin: 0px 2px;
+  cursor: pointer;
+}
+
+</style>
+  </head>
+  <body>
+
+
+
+
+
+<script>
+
+// Crea el botón y establece su estilo
+var button = document.createElement('button');
+button.style.position = 'fixed';
+button.style.bottom = '20px';
+button.style.right = '20px';
+button.style.zIndex = '99';
+button.style.borderRadius = '50%';
+button.style.padding = '1px 8px';
+button.style.fontSize = '24px';
+button.style.color = 'white';
+button.style.backgroundColor = '#2D43E7';
+button.innerHTML = '&#8635;'; // Flecha circular hacia arriba (código de carácter HTML)
+
+// Añade el botón al documento
+document.body.appendChild(button);
+
+// Establece la acción del botón para recargar la página
+button.addEventListener('click', function() {
+  location.reload();
+});
+
+
+
+</script>
+
+    <!-- Container for the gallery -->
+    <div class="gallery">
+    </div>
+
+    <!-- Script to get the data from the Google Sheet -->
+    <script>
+      function getDataFromSheet() {
+        // Replace YOUR_API_KEY with your actual API key
+        var apiKey = 'AIzaSyD5XdmXF34VFAYNKCrTlM8a1uZ3tJeN-Fw';
+
+        // Replace SHEET_ID with the actual ID of your Google Sheet
+        var sheetId = '1mkTCVNZalf7rj-p_rJpcdwPJ3msywaT6By3BN7Nc9Ns';
+
+        // Replace SHEET_NAME with the actual name of the sheet within the Google Sheet
+        // that you want to access
+        var sheetName = 'Sheet1';
+
+        var request = new XMLHttpRequest();
+        request.open('GET', 'https://sheets.googleapis.com/v4/spreadsheets/' + sheetId + '/values/' + sheetName + '?key=' + apiKey, true);
+
+        request.onload = function() {
+          // Access the data here
+          var data = JSON.parse(this.response);
+
+          // Get the gallery element
+          var gallery = document.querySelector('.gallery');
+
+          // Loop through the data and add items to the gallery
+          
+	for (var i = 1; i < data.values.length; i++) {
+
+           // Create the title element
+            var Nombre = document.createElement('div');
+            Nombre.classList.add('gallery-title');
+            Nombre.textContent = "Nombre:  " + data.values[i][0];
+
+            var Apellido = document.createElement('div');
+            Apellido.classList.add('gallery-title');
+            Apellido.textContent = "Apellido:  " + data.values[i][1];
+    
+            var Ciudad = document.createElement('div');
+            Ciudad.classList.add('gallery-title');
+            Ciudad.textContent = "Ciudad:  " + data.values[i][4];
+
+    var Dirección = document.createElement('div');
+            Dirección.classList.add('gallery-title');
+            Dirección.textContent = "Dirección:  " + data.values[i][2];
+    
+    var Detalles = document.createElement('div');
+            Detalles.classList.add('gallery-title');
+            Detalles.textContent = "Barrio/Casa/Apt/Torre:  " + data.values[i][5];
+    
+    var Fecha = document.createElement('div');
+            Fecha.classList.add('gallery-title');
+            Fecha.textContent = "Fecha:  " + data.values[i][10];
+    
+    var Medio = document.createElement('div');
+            Medio.classList.add('gallery-title');
+            Medio.textContent = "Metodo de Pago:  " + data.values[i][6];
+    
+    var Telefono = document.createElement('div');
+            Telefono.classList.add('gallery-title');
+            Telefono.textContent = "Telefono:  " +  data.values[i][3];
+    
+    var Observaciones = document.createElement('div');
+            Observaciones.classList.add('gallery-title');
+            Observaciones.textContent = "Observaciones:  " + data.values[i][7];
+    
+    
+    function loadImg(imgElement, imgSrc) {
+  var img = new Image();
+  img.onload = function() {
+    imgElement.src = this.src;
+  }
+  img.onerror = function() {
+    imgElement.style.display = "none";
+  }
+  img.src = imgSrc;
+}
+     
+    
+            // Create the description element
+            var imga = document.createElement('img');
+            imga.classList.add('imagen');
+            imga.src = data.values[i][72];
+      
+            var description = document.createElement('div');
+            description.classList.add('gallery-description');
+            description.textContent = data.values[i][12];
+ 
+            var imga2 = document.createElement('img');
+            imga2.classList.add('imagen');
+            imga2.src = data.values[i][73];
+     
+            var description2 = document.createElement('div');
+            description2.classList.add('gallery-description');
+            description2.textContent = data.values[i][13];
+
+            var imga3 = document.createElement('img');
+            imga3.classList.add('imagen');
+            imga3.src = data.values[i][74];
+     
+            var description3 = document.createElement('div');
+            description3.classList.add('gallery-description');
+            description3.textContent = data.values[i][14];
+    
+    // Create the description element
+            var imga4 = document.createElement('img');
+            imga4.classList.add('imagen');
+            imga4.src = data.values[i][75];
+     
+            var description4 = document.createElement('div');
+            description4.classList.add('gallery-description');
+            description4.textContent = data.values[i][15];
+ 
+            var imga5 = document.createElement('img');
+            imga5.classList.add('imagen');
+            imga5.src = data.values[i][76];
+     
+            var description5 = document.createElement('div');
+            description5.classList.add('gallery-description');
+            description5.textContent = data.values[i][16];
+
+            var imga6 = document.createElement('img');
+            imga6.classList.add('imagen');
+            imga6.src = data.values[i][77];
+     
+            var description6 = document.createElement('div');
+            description3.classList.add('gallery-description');
+            description3.textContent = data.values[i][17];
+    // Create the description element
+            var imga7 = document.createElement('img');
+            imga7.classList.add('imagen');
+            imga7.src = data.values[i][78];
+     
+            var description7 = document.createElement('div');
+            description7.classList.add('gallery-description');
+            description7.textContent = data.values[i][18];
+ 
+            var imga8 = document.createElement('img');
+            imga8.classList.add('imagen');
+            imga8.src = data.values[i][79];
+     
+            var description8 = document.createElement('div');
+            description8.classList.add('gallery-description');
+            description8.textContent = data.values[i][19];
+
+            var imga9 = document.createElement('img');
+            imga9.classList.add('imagen');
+            imga9.src = data.values[i][80];
+     
+            var description9 = document.createElement('div');
+            description9.classList.add('gallery-description');
+            description9.textContent = data.values[i][20];
+    
+    // Create the description element
+            var imga10 = document.createElement('img');
+            imga10.classList.add('imagen');
+            imga10.src = data.values[i][81];
+     
+            var description10 = document.createElement('div');
+            description10.classList.add('gallery-description');
+            description10.textContent = data.values[i][21];
+ 
+            var imga11 = document.createElement('img');
+            imga11.classList.add('imagen');
+            imga11.src = data.values[i][82];
+     
+            var description11 = document.createElement('div');
+            description11.classList.add('gallery-description');
+            description11.textContent = data.values[i][22];
+
+            var imga12 = document.createElement('img');
+            imga12.classList.add('imagen');
+            imga12.src = data.values[i][83];
+     
+            var description12 = document.createElement('div');
+            description12.classList.add('gallery-description');
+            description12.textContent = data.values[i][23];
+     
+     
+            // Create the gallery item element
+            var item = document.createElement('div');
+            item.classList.add('gallery-item');
+    
+            // Create the details element
+            var details = document.createElement('div');
+            details.classList.add('gallery-details');
+
+            
+            
+    // Crear el elemento para mostrar el precio
+    var price = document.createElement('div');
+    price.classList.add('gallery-price');
+    price.innerHTML ="Total: "+ data.values[i][9]; 
+    
+      // Create the call button
+      var callButton = document.createElement('a');
+      callButton.classList.add('call-button');
+      callButton.href = 'tel:' + data.values[i][4];
+      callButton.innerHTML = '<img src="https://fenixfgx.github.io/directoriocachipay/img/Phone.png" alt="Llamada"  width="52" >';
+      details.appendChild(callButton);
+     
+// Create the WhatsApp button
+var whatsappButton = document.createElement('a');
+whatsappButton.classList.add('whatsapp-button');
+whatsappButton.href = 'https://wa.me/' + data.values[i][5]; // Replace with the actual WhatsApp number
+whatsappButton.innerHTML = '<img src="https://fenixfgx.github.io/directoriocachipay/img/whaticon.png" alt="WhatsApp" class="whatsapp-button" width="50" >';
+details.appendChild(whatsappButton);
+
+   
+
+            // Append the elements to the item
+            item.appendChild(details);
+            details.appendChild(Nombre);
+            details.appendChild(Apellido);
+            details.appendChild(Telefono);
+            details.appendChild(Ciudad);
+            details.appendChild(Dirección);
+            details.appendChild(Detalles);
+            details.appendChild(Fecha);
+            details.appendChild(Medio);
+            details.appendChild(Observaciones);
+            details.appendChild(imga); details.appendChild(description);
+	          details.appendChild(imga2); details.appendChild(description2);
+            details.appendChild(imga3); details.appendChild(description3);
+            details.appendChild(imga4); details.appendChild(description4);
+	          details.appendChild(imga5); details.appendChild(description5);
+            details.appendChild(imga6); details.appendChild(description6);
+            details.appendChild(imga7); details.appendChild(description7);
+	          details.appendChild(imga8); details.appendChild(description8);
+            details.appendChild(imga9); details.appendChild(description9);
+            details.appendChild(imga10); details.appendChild(description10);
+	          details.appendChild(imga11); details.appendChild(description11);
+            details.appendChild(imga12); details.appendChild(description12);
+    // Agregar el precio al elemento de detalles
+    details.appendChild(price);
+
+    // Agregar el bot�n de llamada al elemento de detalles
+    details.appendChild(callButton);
+
+    // Agregar el bot�n de WhatsApp al elemento de detalles
+    details.appendChild(whatsappButton);
+	    
+
+
+
+
+            // Append the item to the gallery
+            gallery.appendChild(item);
+          }
+        }
+
+        request.send();
+      }
+
+      // Call the function to get the data when the page loads
+      getDataFromSheet();
+    </script>
+  </body>
+</html>
