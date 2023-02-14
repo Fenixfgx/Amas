@@ -56,33 +56,65 @@
   font-family: Arial;
 }
  
+  .factura-title {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  margin-top: 12px;
+  margin-left: 5px;
+  font-family: Arial;
+  color: red;
+  height: 25px;
+  text-align: center;
+  border-radius: 9px;
+  position: relative;
+  padding-top: 7px;
+}
+  
+  .fecha {
+      font-size: 1em;
+    margin-bottom: 15px;
+    margin-left: 5px;
+    font-family: Arial;
+    background-color: #ce54bc;
+    color: white;
+    height: 25px;
+    text-align: center;
+    border-radius: 9px;
+    position: relative;
+    padding-top: 7px;
+}
+  
 .gallery-description {
   font-size: 1em;
-  color: #777;
- display: inline-block;
-  font-family: Arial;
+  color: #000;
+  display: inline-block;
+  font-family: arial;
   margin-left: 10px;
   margin-right: 30%;
+  position: relative;
+  bottom: 19px;
 }
 
 .gallery-price {
-  font-size: 1.5em;
-  color: #f00;
-  text-align: center;
-  font-family: Arial;
+      font-size: 1.2em;
+    color: #ff0505;
+    background-color: #4e00ff1c;
+    text-align: center;
+    font-family: Arial;
+    margin-bottom: 12px;
 }
 
-.call-button {
-  border: none;
-  color: white;
-  padding: -3px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  font-family: arial;
-  margin: 0px 22%;
-  cursor: pointer;
+.what {
+    font-size: 1em;
+    font-family: Arial;
+    background-color: #145a17;
+    color: white;
+    text-align: center;
+    border-radius: 9px;
+    padding-top: 7px;
+    padding-left: 27%;
+    padding-right: 27%;
+    padding-bottom: 4px;
 }
 
 .whatsapp-button {
@@ -186,7 +218,7 @@ button.addEventListener('click', function() {
             Detalles.textContent = "Barrio/Casa/Apt/Torre:  " + data.values[i][5];
     
     var Fecha = document.createElement('div');
-            Fecha.classList.add('gallery-title');
+            Fecha.classList.add('fecha');
             Fecha.textContent = "Fecha:  " + data.values[i][10];
     
     var Medio = document.createElement('div');
@@ -201,7 +233,9 @@ button.addEventListener('click', function() {
             Observaciones.classList.add('gallery-title');
             Observaciones.textContent = "Observaciones:  " + data.values[i][7];
     
-    
+    var Factura = document.createElement('div');
+            Factura.classList.add('factura-title');
+            Factura.textContent = "Factura";
     
             // Create the description element
  var imga = document.createElement('img');
@@ -430,34 +464,27 @@ if (data.values[i][83] && data.values[i][83] !== '') {
     var price = document.createElement('div');
     price.classList.add('gallery-price');
     price.innerHTML ="Total: "+ data.values[i][9]; 
-    
-      // Create the call button
-      var callButton = document.createElement('a');
-      callButton.classList.add('call-button');
-      callButton.href = 'tel:' + data.values[i][4];
-      callButton.innerHTML = '<img src="https://fenixfgx.github.io/directoriocachipay/img/Phone.png" alt="Llamada"  width="52" >';
-      details.appendChild(callButton);
      
-// Create the WhatsApp button
-var whatsappButton = document.createElement('a');
-whatsappButton.classList.add('whatsapp-button');
-whatsappButton.href = 'https://wa.me/' + data.values[i][5]; // Replace with the actual WhatsApp number
-whatsappButton.innerHTML = '<img src="https://fenixfgx.github.io/directoriocachipay/img/whaticon.png" alt="WhatsApp" class="whatsapp-button" width="50" >';
-details.appendChild(whatsappButton);
+    var what = document.createElement('a');
+    what.classList.add('what');
+    what.innerHTML ="Confirmar Pedido"; 
+    what.href = 'https://wa.me/' + data.values[i][3];
+    
 
    
 
             // Append the elements to the item
             item.appendChild(details);
+            details.appendChild(Fecha);
             details.appendChild(Nombre);
             details.appendChild(Apellido);
             details.appendChild(Telefono);
             details.appendChild(Ciudad);
             details.appendChild(Dirección);
             details.appendChild(Detalles);
-            details.appendChild(Fecha);
             details.appendChild(Medio);
             details.appendChild(Observaciones);
+            details.appendChild(Factura);
             details.appendChild(imga); details.appendChild(description);
 	          details.appendChild(imga2); details.appendChild(description2);
             details.appendChild(imga3); details.appendChild(description3);
@@ -473,11 +500,10 @@ details.appendChild(whatsappButton);
     // Agregar el precio al elemento de detalles
     details.appendChild(price);
 
-    // Agregar el bot�n de llamada al elemento de detalles
-    details.appendChild(callButton);
+    details.appendChild(what);
 
     // Agregar el bot�n de WhatsApp al elemento de detalles
-    details.appendChild(whatsappButton);
+    
 	    
 
 
