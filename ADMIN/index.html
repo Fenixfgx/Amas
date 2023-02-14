@@ -112,7 +112,7 @@
     text-align: center;
     border-radius: 9px;
     padding-top: 7px;
-    padding-left: 28%;
+    padding-left: 27%;
     padding-right: 28%;
     padding-bottom: 4px;
 }
@@ -468,7 +468,8 @@ if (data.values[i][83] && data.values[i][83] !== '') {
  var what = document.createElement('a');
 what.classList.add('what');
 what.innerHTML = "Confirmar Pedido";
-what.href = 'https://wa.me/' + data.values[i][3] + '?text=¡Hola!,%20Amas%20by%20Nati%20Moños%20%26%20Lazos%20ha%20Confirmado%20tu%20pedido%20por: ' + data.values[i][9];
+what.href = 'https://wa.me/+57' + data.values[i][3].replace(/\D/g, '') + '?text=¡Hola!,%20Amas%20by%20Nati%20Moños%20%26%20Lazos%20ha%20Confirmado%20tu%20pedido%20por:%20' + data.values[i][9];
+
     
 
     
