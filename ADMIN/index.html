@@ -465,13 +465,15 @@ if (data.values[i][83] && data.values[i][83] !== '') {
     price.classList.add('gallery-price');
     price.innerHTML ="Total: "+ data.values[i][9]; 
      
-    var what = document.createElement('a');
-    what.classList.add('what');
-    what.innerHTML ="Confirmar Pedido"; 
-    what.href = 'https://wa.me/' + data.values[i][3];
+ var what = document.createElement('a');
+what.classList.add('what');
+what.innerHTML = "Confirmar Pedido";
+what.href = 'https://wa.me/' + data.values[i][3] + '?text=¡Hola!,%20Amas%20by%20Nati%20Moños%20%26%20Lazos%20ha%20Confirmado%20tu%20pedido%20por: ' + data.values[i][9];
     
 
-   
+    
+
+  
 
             // Append the elements to the item
             item.appendChild(details);
