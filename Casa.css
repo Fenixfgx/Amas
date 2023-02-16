@@ -90,18 +90,17 @@
     width: 340px;
   }
 }.u-section-3 .u-sheet-1 {
-  min-height: 147px;
+  min-height: 300px;
 }
 
 .u-section-3 .u-custom-html-1 {
   height: auto;
   min-height: 115px;
   margin-top: 16px;
-  margin-bottom: 16px;
+  margin-bottom: 0;
 }
 
-@media (max-width: 575px) {
-  .u-section-3 .u-sheet-1 {
-    min-height: 144px;
-  }
+.u-section-3 .u-custom-html-2 {
+  margin-top: 30px;
+  margin-bottom: 60px;
 }

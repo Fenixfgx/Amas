@@ -20,7 +20,7 @@
     <script type="application/ld+json">{
 		"@context": "http://schema.org",
 		"@type": "Organization",
-		"name": "Amas",
+		"name": "Copia de Amas footer",
 		"logo": "images/none.png"
 }</script>
     <meta name="theme-color" content="#478ac9">
@@ -84,11 +84,13 @@ box-shadow: 0px 2px 8px 0px rgba(128,128,128,1) !important
                   <label for="articulos"></label>
                   <input type="text" id="articulos" name="articulos" placeholder="Articulos" hidden="">
                   <label for="totalf"></label>
-                  <input type="text" id="totalf" name="totalf" placeholder="Total" hidden="">
+                  <input type="text" id="totalf" name="totalf" placeholder="Total" readonly="">
                   <br>
                   <br>
-                  <input type="submit" value="Confirmar Compra">
+                  <input type="submit" id="button" class="btn btn-success" value="Confirmar Compra" onclick="submitFormAndSendEmail()">
                 </form>
+                <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+                <script type="text/javascript"> emailjs.init('Z_kI-YzpI6Ea45a-H') </script>
                 <style> #items-list {
     background-color: rgba(255, 255, 255, 0.2);
     padding: 10px;
@@ -112,16 +114,9 @@ box-shadow: 0px 2px 8px 0px rgba(128,128,128,1) !important
     color: black;
   }
 
-	#order-form input[type="textarea"] {
-	padding: 1px;
-    border-radius: 5px;
-    border: 1px solid lightblue;
-    margin-bottom: 3px;
-	height: 3em;
-	}
-	
   #order-form input[type="text"],
-  #order-form input[type="number"],
+  #order-form input[type="textarea"],
+  #order-form input[type="phone"],
   #order-form select {
     padding: 5px;
     border-radius: 5px;
@@ -137,6 +132,19 @@ box-shadow: 0px 2px 8px 0px rgba(128,128,128,1) !important
     border: none;
     cursor: pointer;
   } </style>
+                <script> document.getElementById("order-form").style.display = "none";
+
+  document.getElementById("buy-button").addEventListener("click", function() {
+    document.getElementById("order-form").style.display = "block";
+
+    // Obtener la fecha y hora actual
+    var now = new Date();
+    var time = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+    var date = now.getDate() + "/" + (now.getMonth() + 1) + "/" + now.getFullYear();
+
+    // Establecer el valor de un elemento de formulario con la fecha y hora
+    document.getElementById("marca-temporal").value = time + " " + date;
+  }); </script>
                 <script> document.getElementById("order-form").style.display = "none";
 
   document.getElementById("buy-button").addEventListener("click", function() {
@@ -182,6 +190,48 @@ box-shadow: 0px 2px 8px 0px rgba(128,128,128,1) !important
             </p>
             <br>
             <br>
+            <footer>
+              <div style="width: 150px;height: 0px;border-radius: 50%;color: black;text-align: center;display: flex;font-size: 18px;justify-content: center;margin-left: 30%;">Carrito: $ <span id="totala">0</span>
+              </div>
+              <div id="count2" style="background-color: red;width: 20px;height: 20px;border-radius: 50%;color: white;text-align: center;display: inline-block;font-size: 13px;margin-left: 43%;">0</div>
+            </footer>
+            <style> html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      
+      .content {
+        min-height: calc(100% - 50px); /* 50px es la altura del footer */
+      }
+      
+      footer {
+    height: 50px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0px;
+    background-color: #ffffff;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 37px 4px 8px 10px rgb(0 0 0 / 10%)
+      } </style>
+            <script> const btn = document.getElementById('button');
+const form = document.getElementById('order-form');
+const serviceID = 'default_service';
+const templateID = 'template_ooqmwde';
+btn.addEventListener('click', function(event) {
+  // Envía el formulario a Google Sheets
+  form.submit();
+  // Envía el correo electrónico
+  event.preventDefault();
+  emailjs.sendForm(serviceID, templateID, form).then(() => {
+    console.log('Formulario enviado!');
+  }, (error) => {
+    console.error('Error al enviar el formulario:', error);
+  });
+}); </script>
           </div>
           <style> #add-item-buttons {
   display: flex;
@@ -235,15 +285,21 @@ box-shadow: 0px 2px 8px 0px rgba(128,128,128,1) !important
   margin-top: 10px;
 } </style>
           <script> const itemsList = document.querySelector("#items-list");
-const urlList = document.querySelector("#url-list");
+ const urlList = document.querySelector("#url-list");
 const addItemButtonsContainer = document.querySelector("#add-item-buttons");
 const totalSpan = document.querySelector("#total");
+	const totalSpana = document.querySelector("#totala");
 const count = document.querySelector("#count");
 let total = 0;
 let itemCount = 0;
+	
+	const count2 = document.querySelector("#count2");
+  let total2 = 0;
+  let itemCount2 = 0;
+	
 // Función para obtener los datos de la hoja de Google Sheets
 async function getSheetData() {
-  const sheetId = "1xLU0db0rJLOQ1tqFJVaFlLzIRfX7GT8Z_BCfISV-Rmc";
+  const sheetId = "1TEKMkzEmG5H7xe7-iCtNM54qTtVmQU5KfqmkqGGC_sA";
   const sheetName = "Sheet1";
   const apiKey = "AIzaSyD5XdmXF34VFAYNKCrTlM8a1uZ3tJeN-Fw";
   const response = await fetch(
@@ -255,12 +311,7 @@ async function getSheetData() {
 // Función para crear las tarjetas y agregarlas al contenedor
 async function createAddItemButtons() {
   const sheetData = await getSheetData();
-  let i = 0;
   sheetData.forEach(function (row) {
-    if (i === 0) {
-      i++;
-      return;
-    }
     const itemName = row[0];
     const itemValue = parseInt(row[1]);
     const itemImage = row[2];
@@ -280,21 +331,29 @@ async function createAddItemButtons() {
     addButton.addEventListener("click", function () {
   total += itemValue;
   totalSpan.textContent = total.toLocaleString();
+		
+		totala += itemValue;
+  totalSpana.textContent = total.toLocaleString();
+   
   itemCount++;
   count.textContent = itemCount;
-   const itemElement = document.createElement("div");
-      itemElement.textContent = `${itemName}: ${itemValue} 
-      `;
-      itemsList.appendChild(itemElement);
 		
-	  const itemImagen = document.createElement("div");
+		itemCount2++;
+  count2.textContent = itemCount2;
+   
+   
+   const itemElement = document.createElement("div");
+      itemElement.textContent = `${itemName}: ${itemValue}.`;
+      itemsList.appendChild(itemElement);
+    
+   const itemImagen = document.createElement("div");
       itemImagen.textContent = `${itemImage};  `;
       urlList.appendChild(itemImagen);   
-		
+      
+   
     });
     card.appendChild(addButton);
     addItemButtonsContainer.appendChild(card);
-    i++;
   });
 }
 createAddItemButtons();
@@ -308,6 +367,7 @@ buyButton.addEventListener("click", function() {
   urlField.value = urlList.textContent;
 }); </script>
         </div>
+        <div class="u-clearfix u-custom-html u-expanded-width u-custom-html-2"></div>
       </div>
     </section>
     
