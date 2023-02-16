@@ -90,7 +90,7 @@
     width: 340px;
   }
 }.u-section-3 .u-sheet-1 {
-  min-height: 300px;
+  min-height: 186px;
 }
 
 .u-section-3 .u-custom-html-1 {
@@ -102,5 +102,5 @@
 
 .u-section-3 .u-custom-html-2 {
   margin-top: 30px;
-  margin-bottom: 60px;
+  margin-bottom: 0;
 }
