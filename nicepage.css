@@ -38372,7 +38372,7 @@ a.u-link.u-text-hover-grey-90:hover {
         h3
         {
         font-weight: 400;
-        font-size: 1.2rem;
+        font-size: 1.875rem;
         line-height: 1.2;
         margin-top: 0px;
         margin-bottom: 0px;
@@ -38416,7 +38416,7 @@ a.u-link.u-text-hover-grey-90:hover {
         p:not(.u-text-variant)
         {
         margin-top: 0px;
-        margin-bottom: 4px;
+        margin-bottom: 3px;
         }
         .u-btn
         {
@@ -38488,7 +38488,7 @@ a.u-link.u-text-hover-grey-90:hover {
         @media (max-width: 575px) {
         h3
         {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         }
         }
         /*end-media rules*/
