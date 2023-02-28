@@ -7,7 +7,7 @@
     min-height: 34px;
   }
 } .u-section-2 {
-  background-image: linear-gradient(0deg, rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url("images/Screenshot_5.png");
+  background-color: #dac2fe45;
 }
 
 .u-section-2 .u-sheet-1 {
@@ -94,7 +94,7 @@
     width: 340px;
   }
 } .u-section-3 {
-  background-image: url("images/Screenshot_5.png");
+  background-color: #dac2fe;
   background-attachment: fixed;
   background-size: contain;
   background-repeat: inherit;
